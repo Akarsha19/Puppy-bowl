@@ -15,7 +15,10 @@ const puppyBowl = async () => {
   const ol = document.createElement('ol');
 
   ol.innerHTML = playerLI.join('');
+
   const main = document.querySelector(`main`);
+  main.replaceChildren(ol);
+
   main.append(ol);
 }
 
@@ -40,7 +43,13 @@ const renderPuppyBowl = async () => {
         <p>${player.id}</p>
         <p>${player.breed}</p>
         <p>${player.status}</p>
+
+        <button>Back</button>
         `;
+        const button = document.querySelector(`button`);
+        button.addEventListener(`click`, () => {
+          renderPuppyBowl();
+        });
       });
 
     });
